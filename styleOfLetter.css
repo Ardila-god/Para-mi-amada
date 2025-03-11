@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body{
+    background-color: #fad7df;
+}
+
+main{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+.letter{
+    position: relative;
+    border-left: 200px solid #ff989e;
+    border-right: 200px solid #ff989e;
+    border-bottom: 120px solid #ff858a;
+    border-top: 100px solid transparent;
+}
+
+.cover{
+    position: absolute;
+    border-left: 200px solid transparent;
+    border-right: 200px solid transparent;
+    border-bottom: 100px solid transparent;
+    border-top: 120px solid #ff4242;
+    transform-origin: top;
+    transition: transform .75s;
+}
+
+.paper{
+    position: absolute;
+    background-color: #ffb5b7;
+    width: 300px;
+    height: 170px;
+    z-index: -1;
+    padding: 20px;
+    line-height: 30px;
+    transition: all 1s;
+    border-radius: 10px;
+
+    & p{
+        text-align: center;
+    }
+}
+
+.cont-corazon-1,
+.cont-corazon-2,
+.cont-corazon-3 {
+    position: absolute;
+    font-size: 70px;
+    z-index: -1;
+    transition: all 3s ease-in-out;
+    top: 45%; /* Posición inicial dentro de la carta */
+    left: 50%; /* Posición inicial dentro de la carta */
+    transform: translate(-50%, -50%); /* Centrar los corazones */
+}
+
+.cont-corazon-1 {
+    font-size: 70px;
+    transform: translate(-50%, -50%) rotate(20deg);
+}
+
+.cont-corazon-2 {
+    font-size: 50px;
+    transform: translate(-50%, -50%) rotate(-10deg);
+}
+
+.cont-corazon-3 {
+    font-size: 40px;
+    transform: translate(-50%, -50%) rotate(10deg);
+}
+
+.container-letter{
+    display: flex;
+    justify-content: center;
+}
+
+.options{
+    display: flex;
+    gap: 1.5rem;
+
+    & button {
+        padding: 0.5rem 2rem;
+        border: 1px solid #fe3334;
+        background: #fad7df;
+        font-weight: 600;
+        color: #fe3334;
+        border-radius: 3px;
+        cursor: pointer;
+        text-transform: uppercase;
+    }
+
+    & button:hover {
+        background: #ff989e;
+        color: white;
+        transition: all .3s;
+    }
+}
+
+.open-cover{
+    transform: rotateX(180deg);
+}
+
+.open-paper{
+    transform: translate(0, -200px);
+}
