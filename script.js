@@ -9,6 +9,7 @@ const corazones = [
     document.querySelector('.cont-corazon-3')
 ];
 
+
 // Función para animar los corazones
 function animarCorazones() {
     const duracion = 500; // Duración de la animación en milisegundos (.5 segundos)
@@ -69,31 +70,43 @@ function resetearCorazones() {
 
 // Evento para abrir la carta
 btnOpenElement.addEventListener('click', () => {
+    // Reiniciar capas correctamente SIEMPRE
+    coverElement.style.zIndex = 1;
+    paperElement.style.zIndex = 0;
+
     coverElement.classList.add('open-cover');
-    animarCorazones(),
+    animarCorazones();
 
     setTimeout(() => {
         paperElement.classList.add('open-paper');
+
+        // El papel pasa al frente
         coverElement.style.zIndex = -1;
-        paperElement.style.zIndex = 1
-        setTimeout(() =>{
-            paperElement.classList.remove('open-paper')
-        }, 1000)
+        paperElement.style.zIndex = 1;
+
+        setTimeout(() => {
+            paperElement.classList.remove('open-paper');
+        }, 1000);
+
     }, 1000);
 });
 
+
 // Evento para cerrar la carta
 btnElementClose.addEventListener('click', () => {
-    paperElement.classList.add('open-paper');   
-    resetearCorazones(); // Reiniciar los corazones progresivamente
+    paperElement.classList.add('open-paper');
+    resetearCorazones();
 
     setTimeout(() => {
-        letterElement.style.zIndex = 1 
-        paperElement.style.zIndex = 0
-        paperElement.classList.remove('open-paper')
-        setTimeout(() =>{
+        // Restaurar orden original de capas
+        paperElement.style.zIndex = 0;
+        coverElement.style.zIndex = 1;
+
+        paperElement.classList.remove('open-paper');
+
+        setTimeout(() => {
             coverElement.classList.remove('open-cover');
-            coverElement.style.zIndex = 1;
-        }, 1000)
+        }, 1000);
+
     }, 1000);
 });

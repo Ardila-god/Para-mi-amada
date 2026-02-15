@@ -1,6 +1,7 @@
 const letras = document.querySelectorAll('.letra');
 const botonSiguiente = document.getElementById('siguiente');
 const pantallaCarga = document.getElementById('pantalla-carga');
+const audioMusica = document.getElementById('audio-musica');
 let letrasUbicadas = 0;
 
 // Posiciones finales de las letras
